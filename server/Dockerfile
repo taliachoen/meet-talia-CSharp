@@ -21,4 +21,4 @@ COPY --from=build /app/out ./
 EXPOSE 5000
 
 # הרצת האפליקציה
-ENTRYPOINT ["dotnet", "MeetTalia.dll"]
+ENTRYPOINT ["dotnet", "server_csharp.dll"]
