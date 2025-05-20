@@ -7,6 +7,7 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
   const [activePage, setActivePage] = useState('about');
+console.log("process.env.REACT_APP_API_BASE_URL" , process.env.REACT_APP_API_BASE_URL);
 
   useEffect(() => {
     let url = '';

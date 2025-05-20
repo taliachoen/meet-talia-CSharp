@@ -1,6 +1,6 @@
 @server_csharp_HostAddress = process.env.REACT_APP_API_BASE_URL
 
-GET {{server_csharp_HostAddress}}/weatherforecast/
+GET {{server_csharp_HostAddress}}/
 Accept: application/json
 
 ###
