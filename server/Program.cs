@@ -14,11 +14,11 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// אחרי זה הפעלת CORS
-app.UseCors("AllowAll");
-
 // קודם הפעלת הפנייה ל-HTTPS
 app.UseHttpsRedirection();
+
+// אחרי זה הפעלת CORS
+app.UseCors("AllowAll");
 
 // אם יש צורך ב-authorization אז אחרי CORS
 // app.UseAuthorization();
