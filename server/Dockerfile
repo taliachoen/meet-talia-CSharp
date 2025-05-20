@@ -21,4 +21,4 @@ COPY --from=build /app/out ./
 EXPOSE 5000
 
 # הרצת האפליקציה
-ENTRYPOINT ["dotnet", "server_csharp.dll"]
+ENTRYPOINT ["dotnet", "server-csharp.dll"]
