@@ -11,10 +11,4 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5" />
   </ItemGroup>
 
-<ItemGroup>
-  <Content Include="Data\*.json">
-    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-  </Content>
-</ItemGroup>
-
 </Project>
