@@ -11,11 +11,12 @@ function App() {
   useEffect(() => {
     let url = '';
     if (activePage === 'about') {
-      url = 'http://localhost:5202/about';
+      // url = 'http://localhost:5202/about';
+      url = `${process.env.REACT_APP_API_BASE_URL}/about`;
     } else if (activePage === 'projects') {
-      url = 'http://localhost:5202/projects';
+      url = `${process.env.REACT_APP_API_BASE_URL}/projects`;
     } else if (activePage === 'contact') {
-      url = 'http://localhost:5202/contact';
+      url = `${process.env.REACT_APP_API_BASE_URL}/contact`;
     }
 
     axios.get(url)
