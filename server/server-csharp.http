@@ -1,4 +1,4 @@
-@server_csharp_HostAddress = http://localhost:5202
+@server_csharp_HostAddress = process.env.REACT_APP_API_BASE_URL
 
 GET {{server_csharp_HostAddress}}/weatherforecast/
 Accept: application/json
