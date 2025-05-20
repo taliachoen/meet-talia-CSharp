@@ -1,5 +1,5 @@
 # שלב 1: שלב בנייה (Build stage)
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
 # העתק קבצי csproj והורד תלויות (restore)
@@ -11,7 +11,7 @@ COPY . ./
 RUN dotnet publish -c Release -o out
 
 # שלב 2: שלב הריצה (Runtime stage)
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 
 # העתק את התוצר מהשלב הקודם
