@@ -65,6 +65,13 @@ namespace MeetTaliaAPI.Controllers
             _config = config;
         }
 
+         private readonly ILogger<AiController> _logger;
+
+    public AiController(ILogger<AiController> logger)
+    {
+        _logger = logger;
+    }
+
         [HttpPost("analyze-fit")]
         public async Task<IActionResult> AnalyzeFit([FromBody] JobRequest request)
         {
