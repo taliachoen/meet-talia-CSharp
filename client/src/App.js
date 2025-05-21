@@ -83,7 +83,7 @@ console.log("process.env.REACT_APP_API_BASE_URL" , process.env.REACT_APP_API_BAS
         </nav>
         <div className="site-logo">
           <div className="site-name">&lt;טליה כהן&gt;</div>
-          <div className="site-slogan">בואו נפתח יחד</div>
+          <div className="site-slogan">בואו ניצור יחד</div>
         </div>
 
       </header>
