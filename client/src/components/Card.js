@@ -61,8 +61,8 @@ const Card = ({ project, variant }) => {
             <h4>הערכים שמובילים אותי:</h4>
             <ul>
               <li>🌟 אמינות ושקיפות</li>
-              <li>💡 יצירתיות וחדשנות</li>
-              <li>🤝 שירותיות ומקצועיות</li>
+              <li>🔥 מוטיבציה רבה</li>
+              <li>🤝 עבודת צוות ושיתוף פעולה</li>
               <li>🚀 למידה מתמדת</li>
               <li>❤️ תשוקה אמיתית לעשייה</li>
             </ul>

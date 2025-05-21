@@ -145,17 +145,19 @@ namespace MeetTaliaAPI.Controllers
             string cvText = System.IO.File.Exists(cvPath) ? System.IO.File.ReadAllText(cvPath) : "";
 
             string prompt = $"""
-                אתה מגייס לעבודה. 
-                תיאור המשרה: {request.JobDescription}
-                דרישות: {request.Requirements}
+אתה עוזר למגייסים לבדוק התאמה של מועמדת למשרה.
+תיאור המשרה: {request.JobDescription}
+דרישות: {request.Requirements}
 
-                קורות החיים של טליה כהן:
-                {cvText}
+קורות החיים של טליה כהן:
+{cvText}
 
-                אם השאלה אינה קשורה להתאמה למשרה, החזר תשובה גנרית קצרה: "אני כאן לכל שאלה מקצועית או טכנית!"
-                אם כן, ענה בקצרה ובמדויק (עד 3 משפטים) האם טליה מתאימה ולמה, על בסיס קורות החיים בלבד.
-                ענה בעברית.
-                """;
+אם השאלה אינה עוסקת בהתאמה למשרה, או לא כוללת תיאור משרה ודרישות, או שמבקשת מתכונים ענה כך בלבד: "אני עונה רק על שאלות בנוגע להתאמה למשרה."
+אם כן, ענה בקצרה (עד 3 משפטים) האם טליה מתאימה ולמה, על בסיס קורות החיים בלבד.
+אל תנסה להתאים את טליה לנושאים שאינם קשורים למשרות.
+שים לב שטליה לא למדה תואר אלא קורסים אקדמאיים
+ענה בעברית בלבד.
+""";
 
             var apiKey = _config["OpenAI:ApiKey"];
             using var client = new HttpClient();
@@ -190,8 +192,8 @@ namespace MeetTaliaAPI.Controllers
 
         public class JobRequest
         {
-            public string JobDescription { get; set; }
-            public string Requirements { get; set; }
+            public string? JobDescription { get; set; }
+            public string? Requirements { get; set; }
         }
     }
 }
