@@ -50,6 +50,7 @@ namespace MeetTaliaAPI.Controllers
     public class AiAssistantController : ControllerBase
     {
         private readonly IConfiguration _config;
+        private string? _cvCache;
 
         public AiAssistantController(IConfiguration config)
         {
@@ -134,16 +135,18 @@ namespace MeetTaliaAPI.Controllers
                 return Ok(
                     new { result = "לא התקבלה שאלה על משרה. אשמח לעזור בכל שאלה מקצועית או טכנית!" }
                 );
-
-            // קריאת קובץ קורות חיים (נניח קובץ טקסט)
-            var cvPath = Path.Combine(
-                Directory.GetCurrentDirectory(),
-                "wwwroot",
-                "CV",
-                "talia-english.txt"
-            );
-            string cvText = System.IO.File.Exists(cvPath) ? System.IO.File.ReadAllText(cvPath) : "";
-
+            // קריאת קובץ קורות חיים (Cache בזיכרון)
+            if (_cvCache == null)
+            {
+                var cvPath = Path.Combine(
+                    Directory.GetCurrentDirectory(),
+                    "wwwroot",
+                    "CV",
+                    "talia-english.txt"
+                );
+                _cvCache = System.IO.File.Exists(cvPath) ? System.IO.File.ReadAllText(cvPath) : "";
+            }
+            string cvText = _cvCache ?? "לא נמצאו קורות חיים";
             string prompt = $"""
 אתה עוזר למגייסים לבדוק התאמה של מועמדת למשרה.
 תיאור המשרה: {request.JobDescription}
@@ -157,6 +160,20 @@ namespace MeetTaliaAPI.Controllers
 אל תנסה להתאים את טליה לנושאים שאינם קשורים למשרות.
 שים לב שטליה לא למדה תואר אלא קורסים אקדמאיים
 ענה בעברית בלבד.
+
+  מידע על טליה כהן:
+                 • מפתחת פול סטאק מוכשרת ובעלת מוטיבציה גבוהה, עם ניסיון מעשי בפיתוח מערכות ופרויקטים מורכבים.
+                 • טכנולוגיות: React, Node.js, JavaScript, TypeScript, C#, Express, MongoDB, MySQL, Next.js.
+                 • ניסיון בבניית אפליקציות צד לקוח וצד שרת כולל REST APIs, לוגיקת שרת, ואבטחה.
+                 • סיימה בהצלחה בוטקאמפ Full Stack מטעם מכון לב ואקדמיה Elevation.
+                 • לימודים אקדמיים בהנדסת תוכנה + לימודי הוראה בתכנות מהמכללה האקדמית להנדסה בישראל.
+                 • ניסיון בפרויקטים כגון מערכת ניהול תורים, מערכת לניהול משימות, מערכת סחר במניות בזמן אמת, ואפליקציית מסחר.
+                 • הובילה חניכים בתנועת נוער תוך פיתוח כישורי תקשורת, אחריות ועבודת צוות.
+
+                 כתבי בעברית, בצורה מקצועית, ברורה ומשכנעת, למה טליה מתאימה בדיוק למה שהמגייסת מחפשת – בהתאם לתיאור ודרישות המשרה שהיא כתבה למעלה.
+            
+"אם תנסה לענות אחרת – זו טעות. אל תספק תשובה אחרת."
+
 """;
 
             var apiKey = _config["OpenAI:ApiKey"];

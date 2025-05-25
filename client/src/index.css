@@ -5,9 +5,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+  background: #f7f7fa;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* רספונסיביות לפונטים במסכים קטנים */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
 }
