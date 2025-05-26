@@ -32,16 +32,15 @@
     ],
     "link": "https://github.com/taliachoen/QueueInClick",
     "screenshots": [
-    "/images/QueueInClick/1.png",
-    "/images/QueueInClick/2.png",
-    "/images/QueueInClick/3.png",
-    "/images/QueueInClick/4.png",
-    "/images/QueueInClick/5.png",
-    "/images/QueueInClick/6.png",
-    "/images/QueueInClick/7.png",
-    "/images/QueueInClick/8.png"
-  ],
-  "video": "/videos/QueueInClick/1.mp4"
+      "/images/QueueInClick/1.png",
+      "/images/QueueInClick/2.png",
+      "/images/QueueInClick/3.png",
+      "/images/QueueInClick/4.png",
+      "/images/QueueInClick/5.png",
+      "/images/QueueInClick/6.png",
+      "/images/QueueInClick/7.png",
+      "/images/QueueInClick/8.png"
+    ]
   },
   {
     "name": "EngineerTaskManagement",

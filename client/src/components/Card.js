@@ -58,7 +58,7 @@ const Card = ({ project, variant }) => {
           <div className="about-personal">
             <h3>קצת עליי</h3>
             <p>
-              מאז שאני זוכרת את עצמי, אהבתי ליצור, לפתור בעיות ולגלות עולמות חדשים. עולם הפיתוח מאפשר לי לשלב יצירתיות, חשיבה לוגית והשפעה אמיתית על אנשים. אני מאמינה שכל פרויקט הוא הזדמנות לצמוח, ללמוד ולשמח אחרים – וזה מה שמניע אותי כל יום מחדש.
+              מאז שאני זוכרת את עצמי, אהבתי ליצור, לפתור בעיות ולגלות עולמות חדשים. עולם הפיתוח מאפשר לי לשלב יצירתיות, חשיבה לוגית והשפעה אמיתית על אנשים. אני מאמינה שכל פרויקט הוא הזדמנות לצמוח וללמוד  – וזה מה שמניע אותי כל יום מחדש.
             </p>
           </div>
 
@@ -102,9 +102,6 @@ const Card = ({ project, variant }) => {
                     🤔 בואו תישאלו את הבינה המלאכותית בעצמכם
                   </h4>
                   <form className="ai-form" onSubmit={e => e.preventDefault()}>
-                    <p className="ai-warning">
-                       😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות 
-                    </p>
                     <div className="ai-options">
                       {aiOptions.map((option, idx) => (
                         <button
@@ -118,21 +115,25 @@ const Card = ({ project, variant }) => {
                         </button>
                       ))}
                     </div>
-                    <div className="ai-form-actions">
-                      <button
-                        className="ai-cancel-btn"
-                        type="button"
-                        onClick={() => setIsFormVisible(false)}
-                        disabled={loading}
-                      >
-                        סגור
-                      </button>
-                    </div>
-                  </form>
-                  {loading && (
-                    <div className="spinner" style={{ margin: "20px auto" }}></div>
-                  )}
+                    {loading && (
+                      <div className="spinner" style={{ margin: "20px auto" }}></div>
+                    )}
+
                   {response && <p className="response">{response}</p>}
+                    <p className="ai-warning">
+                      😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות
+                    </p>
+                  </form>
+                  <div className="ai-form-actions">
+                    <button
+                      className="ai-cancel-btn"
+                      type="button"
+                      onClick={() => setIsFormVisible(false)}
+                      disabled={loading}
+                    >
+                      סגור
+                    </button>
+                  </div>
                 </div>
               </div>,
               document.body
@@ -193,24 +194,24 @@ const Card = ({ project, variant }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="view-link"
-            >
+          >
             הצגת הפרויקט
           </a>
-            {(project.screenshots?.length > 0 || project.video) && (
-              <button
+          {(project.screenshots?.length > 0) && (
+            <button
               style={{ marginLeft: "10px" }}
               onClick={() => setShowGallery(true)}
               className="view-link"
-              >
-                הצצה לפרויקט
-              </button>
-            )}
+            >
+              הצצה לפרויקט
+            </button>
+          )}
 
           {showGallery && createPortal(
             <div className="modal-overlay" onClick={() => setShowGallery(false)}>
               <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <button className="close-btn" onClick={() => setShowGallery(false)}>✖</button>
-                <h3>גלריית פרויקט: {project.name}</h3>
+                <h3> {project.name} גלריית פרויקט</h3>
                 {/* תמונות */}
                 {project.screenshots && project.screenshots.length > 0 && (
                   <div className="project-gallery">
@@ -223,13 +224,6 @@ const Card = ({ project, variant }) => {
                       />
                     ))}
                   </div>
-                )}
-                {/* סרטון - מחוץ לגלריה */}
-                {project.video && (
-                  <video controls style={{ maxWidth: "90vw", maxHeight: "50vh", margin: "18px 0 0 0", borderRadius: "10px", background: "#000", display: "block" }}>
-                    <source src={project.video} type="video/mp4" />
-                    הדפדפן שלך לא תומך בסרטונים.
-                  </video>
                 )}
               </div>
             </div>,

@@ -24,7 +24,6 @@ textarea {
 }
 
 
-
 .card {
   background: #fff;
   border-radius: 18px;
@@ -145,10 +144,17 @@ textarea {
 
 /* רספונסיביות למובייל */
 @media (max-width: 600px) {
+
+    body,
+  .app-container {
+    padding-top: 256px;
+  }
+
   .card {
     max-width: 70vw;
     padding: 0.7rem 0.3rem;
     margin-bottom: 1rem;
+    margin-top: 5rem;
     border-radius: 10px;
     box-shadow: 0 1px 6px 0 #0001;
   }
@@ -209,7 +215,6 @@ textarea {
 /* AI section */
 .ai-warning {
   color: #b80000;
-  background: #fff3cd;
   border: 1px solid #ffe58fc1;
   border-radius: 8px;
   padding: 0.7rem 1rem;
@@ -473,18 +478,6 @@ textarea {
   object-fit: contain;
 }
 
-/* וידאו */
-.modal-content video {
-  display: block;
-  margin: 0 auto 0 auto;
-  max-width: 90vw;
-  max-height: 50vh;
-  border-radius: 10px;
-  box-shadow: 0 2px 12px #0002;
-  background: #000;
-  position: static; /* חשוב! */
-  float: none;      /* חשוב! */
-}
 
 /* כפתור סגירה */
 .close-btn {
