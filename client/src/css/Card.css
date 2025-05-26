@@ -1,3 +1,30 @@
+body,
+.app-container,
+.card,
+.card *,
+.main-header,
+.ai-form,
+.about-personal,
+.about-values,
+.response,
+button,
+input,
+textarea {
+  font-family: 'Varela Round', 'Rubik', 'Assistant', 'Segoe UI', Arial, sans-serif !important;
+  letter-spacing: 0.02em;
+}
+
+.card h2,
+.card h3,
+.card h4,
+.ai-invite {
+  font-family: 'Rubik', 'Varela Round', 'Assistant', Arial, sans-serif !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+
+
 .card {
   background: #fff;
   border-radius: 18px;
@@ -14,6 +41,28 @@
   margin-right: auto;
 }
 
+.view-link {
+  display: inline-block;
+  background: linear-gradient(80deg, #82c0f3 0%, #8aa8ae 100%);
+  color: #fff !important;
+  border: none;
+  border-radius: 12px;
+  padding: 0.5em 1.3em;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 0.5em 0.5em 0;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  box-shadow: 0 2px 8px #0057b81a;
+}
+
+.view-link:hover,
+.view-link:focus {
+  background: linear-gradient(90deg, #0057b8 0%, #8aa8ae 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px #0057b83a;
+}
 
 .card:hover {
   box-shadow: 0 8px 32px rgba(33, 150, 243, 0.15);
@@ -43,14 +92,18 @@
 .card a:hover {
   text-decoration: underline;
 }
-
-.card .response {
-  background: #e3e7ee;
-  color: #0057b8;
+.response {
+  direction: rtl;
+  text-align: right;
+  unicode-bidi: plaintext;
+  margin-top: 1.2em;
+  background: #f6fafd;
   border-radius: 8px;
-  padding: 0.7rem 1rem;
-  margin-top: 1rem;
-  font-size: 1rem;
+  padding: 1em 1.2em;
+  font-size: 1.08rem;
+  color: #222;
+  line-height: 1.7;
+  word-break: break-word;
 }
 
 .card form textarea {
@@ -157,7 +210,7 @@
 .ai-warning {
   color: #b80000;
   background: #fff3cd;
-  border: 1px solid #ffe58f;
+  border: 1px solid #ffe58fc1;
   border-radius: 8px;
   padding: 0.7rem 1rem;
   margin-bottom: 1rem;
@@ -165,6 +218,61 @@
   text-align: right;
 }
 
+.ai-cancel-btn {
+  background: #fff;
+  color: #b80000;
+  border: 1.5px solid #b80000;
+  border-radius: 8px;
+  padding: 0.5em 1.5em;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 8px;
+  margin-left: 8px;
+  transition: background 0.18s, color 0.18s, border 0.18s;
+  box-shadow: 0 2px 8px #b8000020;
+}
+
+.ai-cancel-btn:hover,
+.ai-cancel-btn:focus {
+  background: #ffeaea;
+  color: #fff;
+  border-color: #b80000;
+  background: linear-gradient(90deg, #ffbaba 0%, #ffeaea 100%);
+  outline: none;
+}
+
+.ai-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.ai-option-btn {
+  background: #e6f0fa;
+  color: #0057b8;
+  border: 1px solid #b3d1f3;
+  border-radius: 8px;
+  padding: 0.7em 1.2em;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.ai-option-btn:hover {
+  background: #b3d1f3;
+  color: #003366;
+}
+
+.ai-invite {
+  color: #0057b8;
+  border-radius: 12px;
+  padding: 0.7rem 1.2rem;
+  margin: 18px 0 12px 0;
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
 .ai-section {
   margin-top: 1.5rem;
   display: flex;
@@ -195,11 +303,12 @@
 }
 
 .ai-form {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
 }
 
 .ai-textarea {

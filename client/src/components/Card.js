@@ -8,24 +8,28 @@ const Card = ({ project, variant }) => {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
+  const aiOptions = [
+    "אני מחפשת מפתחת שבתחילת דרכה אבל שרוצה ללמוד ולהתפתח בתחום ותתן את כולה בשביל זה",
+    "אני מחפשת מפתחת שמביאה איתה חשיבה יצירתית ויכולת עבודה בצוות",
+    "אני מחפשת מפתחת שאוהבת אתגרים טכנולוגיים ולא מפחדת ללמוד דברים חדשים",
+    "אני מחפשת מפתחת עם יחסי אנוש מעולים, אחריות ורצון להשפיע"
+  ];
+
   if (!project && variant !== 'cv') return null;
 
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+
+  const handleOptionClick = async (optionText) => {
     setLoading(true);
     setResponse('');
     try {
       const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/ai/analyze-fit`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          jobDescription: roleData,
-          requirements: roleData
+          jobDescription: optionText,
+          requirements: optionText
         })
       });
-
       const data = await res.json();
       if (res.ok) {
         setResponse(data.result);
@@ -72,46 +76,67 @@ const Card = ({ project, variant }) => {
           <div className="ai-section">
             <button
               className={`ai-toggle-btn${isFormVisible ? ' active' : ''}`}
-              onClick={() => setIsFormVisible(!isFormVisible)}
+              onClick={() => setIsFormVisible(true)}
               type="button"
               style={isFormVisible ? { display: 'none' } : {}}
             >
               מה הבינה המלאכותית אומרת עליי?
             </button>
-            {isFormVisible && (
-              <form className="ai-form" onSubmit={handleFormSubmit}>
-                <p className="ai-warning">
-                  שימו לב, אמנם הבינה המלאכותית חכמה  🤖<br />
-                  אבל כל מתכנת יודע: אף פעם לא סומכים עליה בעיניים עצומות! 😊<br />
-                  קחו את זה לתשומת ליבכם – ותהנו לפחות מהרעיון 😉
-                </p>
-                <textarea
-                  className="ai-textarea"
-                  placeholder="תארו את סוג התפקיד או הדרישות הרצויות (למשל: אני צריכה מפתחת רצינית, אחראית ונחמדה כאחד)"
-                  value={roleData}
-                  onChange={(e) => setRoleData(e.target.value)}
-                  rows="4"
-                  disabled={loading}
-                />
-                <div className="ai-form-actions">
-                  <button className="ai-submit-btn" type="submit" disabled={loading}>
-                    שליחה
-                  </button>
-                  <button
-                    className="close-btn"
-                    type="button"
-                    onClick={() => setIsFormVisible(false)}
-                    disabled={loading}
-                  >
-                    ביטול
-                  </button>
+            {isFormVisible && createPortal(
+              <div className="modal-overlay" onClick={() => setIsFormVisible(false)}>
+                <div className="modal-content" onClick={e => e.stopPropagation()}>
+                  <button className="close-btn" onClick={() => setIsFormVisible(false)}>✖</button>
+                  <h3 style={{ textAlign: "center", marginTop: "65px" }}>? אומר עלי CHATGPT מה</h3>
+                  <div style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "14px",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    margin: "24px 0"
+                  }}>
+                    <img src="/images/AI/1.png" alt="AI תיאור 1" style={{ maxWidth: "650px", width: "100vw", borderRadius: "18px" }} />
+                    <img src="/images/AI/2.png" alt="AI תיאור 2" style={{ maxWidth: "650px", width: "100vw", borderRadius: "18px" }} />
+                  </div>
+                  <h4 className="ai-invite">
+                    🤔 בואו תישאלו את הבינה המלאכותית בעצמכם
+                  </h4>
+                  <form className="ai-form" onSubmit={e => e.preventDefault()}>
+                    <p className="ai-warning">
+                       😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות 
+                    </p>
+                    <div className="ai-options">
+                      {aiOptions.map((option, idx) => (
+                        <button
+                          key={idx}
+                          type="button"
+                          className="ai-option-btn"
+                          disabled={loading}
+                          onClick={() => handleOptionClick(option)}
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                    <div className="ai-form-actions">
+                      <button
+                        className="ai-cancel-btn"
+                        type="button"
+                        onClick={() => setIsFormVisible(false)}
+                        disabled={loading}
+                      >
+                        סגור
+                      </button>
+                    </div>
+                  </form>
+                  {loading && (
+                    <div className="spinner" style={{ margin: "20px auto" }}></div>
+                  )}
+                  {response && <p className="response">{response}</p>}
                 </div>
-              </form>
+              </div>,
+              document.body
             )}
-            {loading && (
-              <div className="spinner" style={{ margin: "20px auto" }}></div>
-            )}
-            {response && <p className="response">{response}</p>}
           </div>
         </div>
       );
@@ -163,23 +188,23 @@ const Card = ({ project, variant }) => {
           </p>
 
           <p></p>
-          {(project.screenshots?.length > 0 || project.video) && (
-            <button
-              className="view-link"
-              style={{ marginLeft: "10px" }}
-              onClick={() => setShowGallery(true)}
-            >
-              הצצה לפרויקט
-            </button>
-          )}
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
             className="view-link"
-          >
+            >
             הצגת הפרויקט
           </a>
+            {(project.screenshots?.length > 0 || project.video) && (
+              <button
+              style={{ marginLeft: "10px" }}
+              onClick={() => setShowGallery(true)}
+              className="view-link"
+              >
+                הצצה לפרויקט
+              </button>
+            )}
 
           {showGallery && createPortal(
             <div className="modal-overlay" onClick={() => setShowGallery(false)}>
@@ -234,3 +259,52 @@ const Card = ({ project, variant }) => {
 };
 
 export default Card;
+
+
+
+
+
+//  <div className="ai-section">
+//             <button
+//               className={`ai-toggle-btn${isFormVisible ? ' active' : ''}`}
+//               onClick={() => setIsFormVisible(!isFormVisible)}
+//               type="button"
+//               style={isFormVisible ? { display: 'none' } : {}}
+//             >
+//               מה הבינה המלאכותית אומרת עליי?
+//             </button>
+//             {isFormVisible && (
+//               <form className="ai-form" onSubmit={handleFormSubmit}>
+//                 <p className="ai-warning">
+//                   שימו לב, אמנם 0הבינה המלאכותית חכמה  🤖<br />
+//                   אבל כל מתכנת יודע: אף פעם לא סומכים עליה בעיניים עצומות! 😊<br />
+//                   קחו את זה לתשומת ליבכם – ותהנו לפחות מהרעיון 😉
+//                 </p>
+//                 <textarea
+//                   className="ai-textarea"
+//                   placeholder="תארו את סוג התפקיד או הדרישות הרצויות (למשל: אני צריכה מפתחת רצינית, אחראית ונחמדה כאחד)"
+//                   value={roleData}
+//                   onChange={(e) => setRoleData(e.target.value)}
+//                   rows="4"
+//                   disabled={loading}
+//                 />
+//                 <div className="ai-form-actions">
+//                   <button className="ai-submit-btn" type="submit" disabled={loading}>
+//                     שליחה
+//                   </button>
+//                   <button
+//                     className="close-btn"
+//                     type="button"
+//                     onClick={() => setIsFormVisible(false)}
+//                     disabled={loading}
+//                   >
+//                     ביטול
+//                   </button>
+//                 </div>
+//               </form>
+//             )}
+//             {loading && (
+//               <div className="spinner" style={{ margin: "20px auto" }}></div>
+//             )}
+//             {response && <p className="response">{response}</p>}
+//           </div>

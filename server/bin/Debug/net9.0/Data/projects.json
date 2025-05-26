@@ -23,13 +23,43 @@
   },
   {
     "name": "QueueInClick",
-    "description": "פלטפורמה מודרנית ונוחה לניהול ותיאום תורים לעסקים מבוססי שירות,\nכמו קליניקות, מספרות ומכוני יופי.\nכוללת לוחות ניהול נפרדים לבעלי עסקים וללקוחות,\nלוח שנה לניהול תורים, בדיקת זמינות בזמן אמת,\nניהול שירותים והתראות אוטומטיות ללקוחות.",
+    "description": "פלטפורמה מודרנית ונוחה לניהול ותיאום תורים לעסקים מבוססי שירות, כמו קליניקות, מספרות ומכוני יופי. כוללת לוחות ניהול נפרדים לבעלי עסקים וללקוחות, לוח שנה לניהול תורים, בדיקת זמינות בזמן אמת, ניהול שירותים והתראות אוטומטיות ללקוחות.",
     "tech": [
       "React",
       "Node.js",
       "Express",
       "MySQL"
     ],
-    "link": "https://github.com/taliachoen/QueueInClick"
+    "link": "https://github.com/taliachoen/QueueInClick",
+    "screenshots": [
+    "/images/QueueInClick/1.png",
+    "/images/QueueInClick/2.png",
+    "/images/QueueInClick/3.png",
+    "/images/QueueInClick/4.png",
+    "/images/QueueInClick/5.png",
+    "/images/QueueInClick/6.png",
+    "/images/QueueInClick/7.png",
+    "/images/QueueInClick/8.png"
+  ],
+  "video": "/videos/QueueInClick/1.mp4"
+  },
+  {
+    "name": "EngineerTaskManagement",
+    "description": "מערכת ניהול משימות ומהנדסים מבוססת C#. מאפשרת למנהלים ליצור משימות, להגדיר תלות בין משימות, לנהל מהנדסים לפי רמות התמחות, ולבצע שיוך משימות אוטומטי. המהנדסים יכולים להתחבר, לצפות במשימות פנויות ולבחור משימות לפי רמתם וזמינותם.",
+    "tech": [
+      "C#",
+      "WPF",
+      "XML"
+    ],
+    "link": "https://github.com/taliachoen/TaskManagementForEngineers"
+  },
+  {
+    "name": "Photo Project",
+    "description": "אפליקציית ווב להצגת וניהול גלריית תמונות רספונסיבית עם עיצוב מודרני, אפקטי מעבר אינטראקטיביים ומבנה תיקיות נקי. הפרויקט כולל גלריה רספונסיבית, חוויית משתמש נעימה וקלה לשימוש.",
+    "tech": [
+      "HTML5",
+      "CSS3"
+    ],
+    "link": "https://github.com/taliachoen/photo_project"
   }
 ]
