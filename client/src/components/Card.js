@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 
 const Card = ({ project, variant }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const [roleData, setRoleData] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
@@ -253,52 +252,3 @@ const Card = ({ project, variant }) => {
 };
 
 export default Card;
-
-
-
-
-
-//  <div className="ai-section">
-//             <button
-//               className={`ai-toggle-btn${isFormVisible ? ' active' : ''}`}
-//               onClick={() => setIsFormVisible(!isFormVisible)}
-//               type="button"
-//               style={isFormVisible ? { display: 'none' } : {}}
-//             >
-//               מה הבינה המלאכותית אומרת עליי?
-//             </button>
-//             {isFormVisible && (
-//               <form className="ai-form" onSubmit={handleFormSubmit}>
-//                 <p className="ai-warning">
-//                   שימו לב, אמנם 0הבינה המלאכותית חכמה  🤖<br />
-//                   אבל כל מתכנת יודע: אף פעם לא סומכים עליה בעיניים עצומות! 😊<br />
-//                   קחו את זה לתשומת ליבכם – ותהנו לפחות מהרעיון 😉
-//                 </p>
-//                 <textarea
-//                   className="ai-textarea"
-//                   placeholder="תארו את סוג התפקיד או הדרישות הרצויות (למשל: אני צריכה מפתחת רצינית, אחראית ונחמדה כאחד)"
-//                   value={roleData}
-//                   onChange={(e) => setRoleData(e.target.value)}
-//                   rows="4"
-//                   disabled={loading}
-//                 />
-//                 <div className="ai-form-actions">
-//                   <button className="ai-submit-btn" type="submit" disabled={loading}>
-//                     שליחה
-//                   </button>
-//                   <button
-//                     className="close-btn"
-//                     type="button"
-//                     onClick={() => setIsFormVisible(false)}
-//                     disabled={loading}
-//                   >
-//                     ביטול
-//                   </button>
-//                 </div>
-//               </form>
-//             )}
-//             {loading && (
-//               <div className="spinner" style={{ margin: "20px auto" }}></div>
-//             )}
-//             {response && <p className="response">{response}</p>}
-//           </div>

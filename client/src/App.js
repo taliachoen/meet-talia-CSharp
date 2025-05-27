@@ -12,7 +12,6 @@ function App() {
   useEffect(() => {
     let url = '';
     if (activePage === 'about') {
-      // url = 'http://localhost:5202/about';
       url = `${process.env.REACT_APP_API_BASE_URL}/about`;
     } else if (activePage === 'projects') {
       url = `${process.env.REACT_APP_API_BASE_URL}/projects`;
