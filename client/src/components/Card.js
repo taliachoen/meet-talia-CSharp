@@ -101,7 +101,8 @@ const Card = ({ project, variant }) => {
                     🤔 בואו תישאלו את הבינה המלאכותית בעצמכם
                   </h4>
                   <p className="ai-api-info">
-                    🛰️ שימו לב: בלחיצה על אחת האפשרויות, נשלחת בקשת API אוטומטית לשרת הבינה המלאכותית – זה יקח לו רגע להביא את התשובה🙃!
+                       לשרת הבינה המלאכותית 🛰️ API שימו לב: בלחיצה על אחת האפשרויות, נשלחת בקשת 
+                    <br/>   🙃זה יקח לו רגע להביא את התשובה
                   </p>
                   <form className="ai-form" onSubmit={e => e.preventDefault()}>
                     <div className="ai-options">
@@ -246,6 +247,7 @@ const Card = ({ project, variant }) => {
             <a href="/cv/talia-english.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">
               צפייה אונליין (אנגלית)
             </a>
+            <br />
             <a href="/cv/talia-hebrew.pdf" download className="cv-btn">קובץ PDF (עברית)</a>
             <a href="/cv/talia-hebrew.docx" download className="cv-btn">קובץ WORD (עברית)</a>
             <a href="/cv/talia-hebrew.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">
