@@ -243,13 +243,12 @@ const Card = ({ project, variant }) => {
           <p>בחרו את הגרסה שתרצו להוריד:</p>
           <div className="cv-downloads">
             <a href="/cv/talia-english.pdf" download className="cv-btn">קובץ PDF (אנגלית)</a>
+            <a href="/cv/talia-hebrew.pdf" download className="cv-btn">קובץ PDF (עברית)</a>
             <a href="/cv/talia-english.docx" download className="cv-btn">קובץ WORD (אנגלית)</a>
+            <a href="/cv/talia-hebrew.docx" download className="cv-btn">קובץ WORD (עברית)</a>
             <a href="/cv/talia-english.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">
               צפייה אונליין (אנגלית)
             </a>
-            <br />
-            <a href="/cv/talia-hebrew.pdf" download className="cv-btn">קובץ PDF (עברית)</a>
-            <a href="/cv/talia-hebrew.docx" download className="cv-btn">קובץ WORD (עברית)</a>
             <a href="/cv/talia-hebrew.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">
               צפייה אונליין (עברית)
             </a>
