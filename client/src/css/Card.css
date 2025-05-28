@@ -223,6 +223,14 @@ textarea {
   text-align: right;
 }
 
+.ai-api-info {
+  color: #0057b8;
+  font-size: 0.98rem;
+  margin-top: 0.7em;
+  text-align: center;
+  opacity: 0.85;
+}
+
 .ai-cancel-btn {
   background: #fff;
   color: #b80000;

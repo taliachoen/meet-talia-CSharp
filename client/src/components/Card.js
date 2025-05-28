@@ -100,6 +100,9 @@ const Card = ({ project, variant }) => {
                   <h4 className="ai-invite">
                     🤔 בואו תישאלו את הבינה המלאכותית בעצמכם
                   </h4>
+                  <p className="ai-api-info">
+                    🛰️ שימו לב: בלחיצה על אחת האפשרויות, נשלחת בקשת API אוטומטית לשרת הבינה המלאכותית – זה יקח לו רגע להביא את התשובה🙃!
+                  </p>
                   <form className="ai-form" onSubmit={e => e.preventDefault()}>
                     <div className="ai-options">
                       {aiOptions.map((option, idx) => (
@@ -118,7 +121,7 @@ const Card = ({ project, variant }) => {
                       <div className="spinner" style={{ margin: "20px auto" }}></div>
                     )}
 
-                  {response && <p className="response">{response}</p>}
+                    {response && <p className="response">{response}</p>}
                     <p className="ai-warning">
                       😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות
                     </p>
@@ -238,12 +241,15 @@ const Card = ({ project, variant }) => {
           <h2>קורות חיים</h2>
           <p>בחרו את הגרסה שתרצו להוריד:</p>
           <div className="cv-downloads">
-            {/* <a href="/cv/talia-hebrew.pdf" download className="cv-btn">עברית PDF</a> */}
-            <a href="/cv/talia-english.pdf" download className="cv-btn">קובץ PDF</a>
-            {/* <a href="/cv/talia-hebrew.docx" download className="cv-btn">עברית WORD</a> */}
-            <a href="/cv/talia-english.docx" download className="cv-btn">קובץ WORD</a>
+            <a href="/cv/talia-english.pdf" download className="cv-btn">קובץ PDF (אנגלית)</a>
+            <a href="/cv/talia-english.docx" download className="cv-btn">קובץ WORD (אנגלית)</a>
             <a href="/cv/talia-english.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">
-              צפייה אונליין
+              צפייה אונליין (אנגלית)
+            </a>
+            <a href="/cv/talia-hebrew.pdf" download className="cv-btn">קובץ PDF (עברית)</a>
+            <a href="/cv/talia-hebrew.docx" download className="cv-btn">קובץ WORD (עברית)</a>
+            <a href="/cv/talia-hebrew.pdf" target="_blank" rel="noopener noreferrer" className="cv-btn">
+              צפייה אונליין (עברית)
             </a>
           </div>
         </div>
