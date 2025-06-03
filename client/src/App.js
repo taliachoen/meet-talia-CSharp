@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './components/Card';
 import './css/App.css';
+import personalData from './data/personalData';
 
 function App() {
   const [data, setData] = useState([]);
@@ -12,23 +13,26 @@ function App() {
   useEffect(() => {
     let url = '';
     if (activePage === 'about') {
-      url = `${process.env.REACT_APP_API_BASE_URL}/about`;
+      setData([personalData]);
+      return;
     } else if (activePage === 'projects') {
       url = `${process.env.REACT_APP_API_BASE_URL}/projects`;
     } else if (activePage === 'contact') {
       url = `${process.env.REACT_APP_API_BASE_URL}/contact`;
     }
 
-    axios.get(url)
-      .then(response => {
-        setData(response.data);
-        setError('');
-      })
-      .catch(err => {
-        console.error("error", err);
-        setError('אירעה שגיאה בעת שליפת הנתונים מהשרת');
-        console.error(err);
-      });
+    if (url) {
+      axios.get(url)
+        .then(response => {
+          setData(response.data);
+          setError('');
+        })
+        .catch(err => {
+          console.error("error", err);
+          setError('אירעה שגיאה בעת שליפת הנתונים מהשרת');
+          console.error(err);
+        });
+    }
   }, [activePage]);
 
   const getHebrewTitle = (page) => {
@@ -111,7 +115,7 @@ function App() {
           ))
         ) : (
           <p>אנא המתינו רגע, הנתונים מתארגנים... <br />
-           הם רוצים להיראות במיטבם על המסך שלך! <br />
+            הם רוצים להיראות במיטבם על המסך שלך! <br />
             עוד שנייה – והם כאן! 🎉</p>
         )}
       </ul>

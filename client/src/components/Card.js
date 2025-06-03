@@ -124,7 +124,7 @@ const Card = ({ project, variant }) => {
                     {response && <p className="response">{response}</p>}
                     <p className="ai-warning">
                        😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות
-                       אשמח להגיע לראיון כדי להראות לכם במציאות מי אני  
+                       אשמח להגיע לראיון כדי להכיר במציאות  
                     </p>
                   </form>
                   <div className="ai-form-actions">
