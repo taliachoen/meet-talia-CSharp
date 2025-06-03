@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../css/Card.css';
 import { createPortal } from "react-dom";
+import personalData from '../data/personalData';
 
 const Card = ({ project, variant }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -45,15 +46,13 @@ const Card = ({ project, variant }) => {
     case 'about':
       return (
         <div className="card card-about">
-          <h2>{project.name}</h2>
-          <p><strong>תפקיד:</strong> {project.title}</p>
-          <p><strong>הפוקוס שלי:</strong> {project.focus}</p>
-          <p><strong>השכלה:</strong> {project.education}</p>
-          <p><strong>שפות וטכנולוגיות:</strong> {project.languages?.join(', ')}</p>
-          <p><strong>מיקום:</strong> {project.location}</p>
-          <p><strong>אודות:</strong> {project.about}</p>
-          {project.email && <p><strong>אימייל:</strong> {project.email}</p>}
-
+          <h2>{personalData.name}</h2>
+          <p><strong>תפקיד:</strong> {personalData.title}</p>
+          <p><strong>הפוקוס שלי:</strong> {personalData.focus}</p>
+          <p><strong>השכלה:</strong> {personalData.education}</p>
+          <p><strong>שפות וטכנולוגיות:</strong> {personalData.languages?.join(', ')}</p>
+          <p><strong>מיקום:</strong> {personalData.location}</p>
+          <p><strong>אודות:</strong> {personalData.about}</p>
           <div className="about-personal">
             <h3>קצת עליי</h3>
             <p>

@@ -14,10 +14,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// קודם הפעלת הפנייה ל-HTTPS
 app.UseHttpsRedirection();
 
-// אחרי זה הפעלת CORS
 app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.

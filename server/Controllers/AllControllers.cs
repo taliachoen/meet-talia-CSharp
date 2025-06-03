@@ -1,6 +1,3 @@
-// פרויקט ASP.NET Core שיחליף את Node.js
-// שלב ראשון: תוכן הקבצים בתיקיית Controllers
-
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
@@ -67,7 +64,6 @@ namespace MeetTaliaAPI.Controllers
                 return Ok(
                     new { result = "לא התקבלה שאלה על משרה. אשמח לעזור בכל שאלה מקצועית או טכנית!" }
                 );
-            // קריאת קובץ קורות חיים (Cache בזיכרון)
             if (_cvCache == null)
             {
                 var cvPath = Path.Combine(
