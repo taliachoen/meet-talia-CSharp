@@ -3,18 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MeetTaliaAPI.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class AboutController : ControllerBase
-    {
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var json = System.IO.File.ReadAllText("./Data/about.json");
-            var data = JsonDocument.Parse(json);
-            return Ok(data);
-        }
-    }
 
     [ApiController]
     [Route("[controller]")]
