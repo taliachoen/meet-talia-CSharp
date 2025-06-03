@@ -2,8 +2,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MeetTaliaAPI.Controllers
-{+
-
+{
     [ApiController]
     [Route("[controller]")]
     public class ProjectsController : ControllerBase
@@ -63,7 +62,7 @@ namespace MeetTaliaAPI.Controllers
                 _cvCache = System.IO.File.Exists(cvPath) ? System.IO.File.ReadAllText(cvPath) : "";
             }
             string cvText = _cvCache ?? "לא נמצאו קורות חיים";
-           string prompt = $"""
+            string prompt = $"""
 התיאור הבא הוא מה שמחפשים במועמדת:
 "{request.JobDescription}"
 
@@ -95,7 +94,6 @@ namespace MeetTaliaAPI.Controllers
 המטרה: ניסוח משכנע שמראה שטליה מביאה ערך אמיתי לצוות ולמקום עבודה.
 
 """;
-
 
             var apiKey = _config["OpenAI:ApiKey"];
             using var client = new HttpClient();
