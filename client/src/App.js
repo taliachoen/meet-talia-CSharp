@@ -121,8 +121,11 @@ function App() {
         )}
       </ul>
       <footer className="main-footer">
-        <p>© 2025 טליה כהן</p>
-        <p>כל הזכויות שמורות</p>
+        <p style={{
+          margin: 0, color: '#fff',
+          fontFamily: 'Arial, sans-serif',
+          fontSize: '14px',
+        }}>© 2025 טליה כהן</p>
       </footer>
     </div>
   );
