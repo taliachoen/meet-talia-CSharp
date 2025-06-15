@@ -120,6 +120,10 @@ function App() {
             עוד שנייה – והם כאן! 🎉</p>
         )}
       </ul>
+      <footer className="main-footer">
+        <p>© 2025 טליה כהן</p>
+        <p>כל הזכויות שמורות</p>
+      </footer>
     </div>
   );
 }

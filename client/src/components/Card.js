@@ -16,7 +16,9 @@ const Card = ({ project, variant }) => {
     "אני מחפשת מפתחת עם יחסי אנוש מעולים, אחריות ורצון להשפיע"
   ];
 
-  if (!project && variant !== 'cv') return null;
+  console.log("Card props:", { variant, project });
+
+
   const handleOptionClick = async (optionText) => {
     setLoading(true);
     setResponse('');
@@ -42,7 +44,12 @@ const Card = ({ project, variant }) => {
 
   switch (variant) {
     case 'about':
+    case 'about':
+      console.log("personalData loaded", personalData);
+
       return (
+        console.log(personalData.name),
+
         <div className="card card-about">
           <h2>{personalData.name}</h2>
           <p><strong>תפקיד:</strong> {personalData.title}</p>
