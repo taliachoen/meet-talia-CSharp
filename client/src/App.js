@@ -9,7 +9,6 @@ function App() {
   const [data, setData] = useState([]);
   const [error, setError] = useState('');
   const [activePage, setActivePage] = useState('about');
-  console.log("process.env.REACT_APP_API_BASE_URL", process.env.REACT_APP_API_BASE_URL);
 
   useEffect(() => {
     let url = '';
@@ -19,7 +18,7 @@ function App() {
     } else if (activePage === 'projects') {
       url = `${process.env.REACT_APP_API_BASE_URL}/projects`;
     } else if (activePage === 'contact') {
-      setData([contactData]); 
+      setData([contactData]);
       return;
     }
 
@@ -105,9 +104,9 @@ function App() {
       <h2 className="section-title">{getHebrewTitle(activePage)}</h2>
 
       <ul className="card-list">
-        {activePage === 'cv' ? (
+        {['cv', 'about', 'contact'].includes(activePage) ? (
           <li>
-            <Card variant="cv" />
+            <Card variant={activePage} />
           </li>
         ) : Array.isArray(data) && data.length > 0 ? (
           data.map((item, index) => (

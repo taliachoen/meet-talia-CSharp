@@ -17,8 +17,6 @@ const Card = ({ project, variant }) => {
   ];
 
   if (!project && variant !== 'cv') return null;
-
-
   const handleOptionClick = async (optionText) => {
     setLoading(true);
     setResponse('');
@@ -27,8 +25,7 @@ const Card = ({ project, variant }) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          jobDescription: optionText,
-          requirements: optionText
+          jobDescription: optionText
         })
       });
       const data = await res.json();
@@ -124,7 +121,7 @@ const Card = ({ project, variant }) => {
 
                     {response && <p className="response">{response}</p>}
                     <p className="ai-warning">
-                      , 😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות
+                      😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות
                       אשמח להגיע לראיון כדי להכיר במציאות
                     </p>
                   </form>
@@ -201,7 +198,6 @@ const Card = ({ project, variant }) => {
               <div className="modal-content" onClick={e => e.stopPropagation()}>
                 <button className="close-btn" onClick={() => setShowGallery(false)}>✖</button>
                 <h3> {project.name} גלריית פרויקט</h3>
-                {/* תמונות */}
                 {project.screenshots && project.screenshots.length > 0 && (
                   <div className="project-gallery">
                     {project.screenshots.map((src, i) => (

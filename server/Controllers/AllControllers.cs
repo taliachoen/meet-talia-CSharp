@@ -31,10 +31,7 @@ namespace MeetTaliaAPI.Controllers
         [HttpPost("analyze-fit")]
         public async Task<IActionResult> AnalyzeFit([FromBody] JobRequest request)
         {
-            if (
-                string.IsNullOrEmpty(request.JobDescription)
-                || string.IsNullOrEmpty(request.Requirements)
-            )
+            if (string.IsNullOrEmpty(request.JobDescription))
                 return Ok(
                     new { result = "לא התקבלה שאלה על משרה. אשמח לעזור בכל שאלה מקצועית או טכנית!" }
                 );
@@ -116,7 +113,6 @@ namespace MeetTaliaAPI.Controllers
         public class JobRequest
         {
             public string? JobDescription { get; set; }
-            public string? Requirements { get; set; }
         }
     }
 }
