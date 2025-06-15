@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../css/Card.css';
 import { createPortal } from "react-dom";
 import personalData from '../data/personalData';
+import contactData from '../data/contactData';
 
 const Card = ({ project, variant }) => {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -123,8 +124,8 @@ const Card = ({ project, variant }) => {
 
                     {response && <p className="response">{response}</p>}
                     <p className="ai-warning">
-                       😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות
-                       אשמח להגיע לראיון כדי להכיר במציאות  
+                      , 😊  כל מתכנת יודע: אף פעם לא סומכים על הבינה מלאכותית בעיניים עצומות
+                      אשמח להגיע לראיון כדי להכיר במציאות
                     </p>
                   </form>
                   <div className="ai-form-actions">
@@ -148,27 +149,12 @@ const Card = ({ project, variant }) => {
     case 'contact':
       return (
         <div className="card card-contact">
-          <h3>תודה שפנית אליי! אחזור אלייך בהקדם.</h3>
-          {project.email && (
-            <p>
-              <strong>אימייל:</strong>{' '}
-              <a href={`mailto:${project.email}`}>{project.email}</a>
-            </p>
-          )}
-          {project.phone && (
-            <p>
-              <strong>טלפון:</strong>{' '}
-              <a href={`tel:${project.phone}`}>{project.phone}</a>
-            </p>
-          )}
-          {project.github && (
-            <p>
-              <strong>גיט:</strong>{' '}
-              <a href={project.github} target="_blank" rel="noopener noreferrer">
-                {project.github}
-              </a>
-            </p>
-          )}
+          <h2>צור קשר</h2>
+          <p><strong>אימייל:</strong> {contactData.email}</p>
+          <p><strong>טלפון:</strong> {contactData.phone}</p>
+          <p>
+            <a href={contactData.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+          </p>
         </div>
       );
 

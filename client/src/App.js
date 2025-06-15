@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from './components/Card';
 import './css/App.css';
 import personalData from './data/personalData';
+import contactData from './data/contactData';
 
 function App() {
   const [data, setData] = useState([]);
@@ -18,7 +19,8 @@ function App() {
     } else if (activePage === 'projects') {
       url = `${process.env.REACT_APP_API_BASE_URL}/projects`;
     } else if (activePage === 'contact') {
-      url = `${process.env.REACT_APP_API_BASE_URL}/contact`;
+      setData([contactData]); 
+      return;
     }
 
     if (url) {

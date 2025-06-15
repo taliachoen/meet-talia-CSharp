@@ -17,19 +17,6 @@ namespace MeetTaliaAPI.Controllers
     }
 
     [ApiController]
-    [Route("[controller]")]
-    public class ContactController : ControllerBase
-    {
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var json = System.IO.File.ReadAllText("Data/contact.json");
-            var data = JsonDocument.Parse(json);
-            return Ok(data);
-        }
-    }
-
-    [ApiController]
     [Route("api/ai")]
     public class AiAssistantController : ControllerBase
     {
