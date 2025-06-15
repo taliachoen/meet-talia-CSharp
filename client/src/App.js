@@ -122,7 +122,7 @@ function App() {
       </ul>
       <footer className="main-footer">
         <p style={{
-          margin: 0, color: '#fff',
+          margin: 0, color: 'black',
           fontFamily: 'Arial, sans-serif',
           fontSize: '14px',
         }}>© 2025 טליה כהן</p>
