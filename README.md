@@ -1,73 +1,56 @@
-<div dir="rtl" align="right">
+# Meet Talia – AI-Powered Developer Portfolio
 
-# 🎓 Meet Talia – מערכת להצגת פרויקטים אישית
+An interactive portfolio site that presents my projects and CV, and includes an **AI job-fit analyzer**: a recruiter picks or pastes a job description, and the backend uses the OpenAI API to assess how well my experience matches the role.
 
-ברוכים הבאים לפרויקט **Meet Talia** – מערכת אינטראקטיבית להצגת פרויקטים, קורות חיים, מידע אישי, ויכולות בינה מלאכותית לניתוח והתאמה מקצועית.
+**Live demo:** https://meet-talia-client.onrender.com/
+*(hosted on a free tier – the first load may take a few seconds)*
 
----
+**Tech:** React · ASP.NET Core (C#) · OpenAI API · REST · Docker · Render
 
-## 🧩 על הפרויקט
+<!-- Add screenshots here, e.g.: ![Home page](docs/home.png) -->
 
-המערכת נבנתה להצגת תיק עבודות (Portfolio) דינמי עם דגש על חוויית משתמש, עיצוב מודרני ונגישות.  
-האתר מאפשר למבקרים להתרשם מפרויקטים, לקרוא על טליה כהן, לצפות בקורות חיים, ואף לשאול את הבינה המלאכותית שאלות על התאמה מקצועית.
+## Features
 
----
+- **AI job-fit analysis** – an ASP.NET Core endpoint sends the job description and my profile to the OpenAI API and returns a written fit assessment
+- **Project cards** with descriptions, tech stack, links and an image gallery modal (React Portals)
+- **CV section** with downloadable Hebrew and English versions
+- **Responsive design** for mobile, tablet and desktop
 
-## 🛠️ טכנולוגיות עיקריות
+## Architecture
 
-### Frontend:
-- React.js  
-- CSS3 (כולל רספונסיביות מלאה)  
-- Google Fonts  
-- שימוש ב־React Portals למודאלים וגלריות  
+```
+client/   React app (components, data files, gallery modal)
+server/   ASP.NET Core Web API
+  ├── Controllers/   REST endpoints (projects, AI analysis)
+  ├── Data/          Project data (JSON)
+  └── Dockerfile     Container build for deployment
+```
 
-### Backend:
-- ASP.NET Core (C#)  
-- OpenAI API  
-- REST API
+## Getting Started
 
----
+### Prerequisites
+- Node.js 18+
+- .NET 9 SDK
+- An OpenAI API key
 
-## ✨ פיצ'רים מרכזיים
+### Server
+```bash
+cd server
+dotnet restore
+export OpenAI__ApiKey="<your-key>"   # or add "OpenAI": { "ApiKey": "..." } to appsettings.json (never commit it)
+dotnet run
+```
 
-- **כרטיסי פרויקטים:** הצגת פרויקטים עם תיאור, טכנולוגיות, קישורים וגלריית תמונות.  
-- **מודאל גלריה:** צפייה בתמונות או סרטונים של כל פרויקט במודאל נוח.  
-- **🤖 ניתוח AI מותאם אישית:** טופס אינטראקטיבי לניתוח התאמה למשרה, דרך API של GPT (כולל בחירה בין 4 תיאורים).  
-- **קורות חיים:** הצגה מלאה של ניסיון, השכלה, ופרויקטים.  
-- **עיצוב רספונסיבי:** מותאם למובייל, טאבלט ודסקטופ.  
-- **הערות אזהרה קלילות:** לפני שליחת שאלה ל־AI מוצגת הערה משעשעת על מגבלות הבינה.
-
----
-
-## 🚀 הוראות התקנה והרצה
-
-### 1. התקנת צד לקוח (React)
-bash
+### Client
+```bash
 cd client
 npm install
 npm start
+```
 
+Set `REACT_APP_API_BASE_URL` in `client/.env` to the server URL.
 
-### 2. התקנת צד שרת (ASP.NET Core)
+## Author
 
-bash
-cd server
-dotnet restore
-dotnet run
-
-
-### 3. הגדרת משתני סביבה
-
-- יש להגדיר מפתח OpenAI ב־server (בקובץ appsettings או כ־Environment Variable).
-
----
-
-## 🎨 עיצוב וחוויית משתמש
-
-- שימוש בגופני Google Fonts מודרניים (Varela Round, Rubik, Assistant)
-- כפתורים וכרטיסים מעוצבים עם אפקטים וצללים
-- מודאלים עם אנימציה עדינה
-- צבעי רקע נעימים, ריווח נדיב, והתאמה מלאה למובייל
-- דגש על נגישות: צבעים עם קונטרסט, כפתורים גדולים, טקסט קריא
-
-  </div> 
+**Talia Cohen** – Full Stack Developer
+[GitHub](https://github.com/taliachoen) · taliachoen1@gmail.com
