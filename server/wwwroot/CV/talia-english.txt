@@ -1,0 +1,55 @@
+                                                     Talia Cohen
+                                                    Full Stack Developer
+                               055-6724279 | taliachoen1@gmail.com | github.com/taliachoen
+
+PROFESSIONAL SUMMARY
+Full Stack Developer with 1+ years of hands-on experience building AI-powered web products with Node.js, Next.js, React and
+Firebase. Specialized in backend workflows: asynchronous processing of long-running AI tasks, third-party AI integrations
+(OpenAI, Claude, Suno), credit-based usage and payment integration.
+
+EXPERIENCE
+Full Stack Developer | LINKS AI                                                                                  2025 – 10/2026
+Software studio developing web products for clients and in-house ventures
+ • Led full-stack development of an in-house AI media-generation platform (MVP) that creates music, images, videos and clips
+     from user prompts; presented to investors as a product demo.
+ • Integrated multiple AI services (OpenAI GPT, Claude API, Suno API) behind a unified backend API, handling each provider’s
+     different request and response formats.
+ • Built asynchronous processing flows for long-running generation tasks, with job status tracking and progress updates in the
+     UI.
+ • Implemented retry and failure-handling logic for external AI APIs to keep the user flow stable during provider timeouts and
+     errors.
+ • Implemented a credit-based usage model with different costs per generation type, and integrated the platform with the
+     team’s Pelecard payment service.
+ • Built user authentication and data management with Firebase (Auth, Firestore), and stored generated media in Firebase
+     Storage.
+ • Designed a simple, accessible UX for non-technical users using Next.js, React and Tailwind CSS.
+ • Deployed and maintained the application on an Ubuntu cloud server and Render, including environment configuration and
+     production debugging.
+
+PROJECTS
+CareerAgent – AI Career Assistant (In Progress)                                            github.com/taliachoen/career-agent
+ • Building an AI-powered job-search assistant as a TypeScript monorepo: NestJS REST API, Next.js frontend and shared types.
+ • Implemented JWT authentication with bcrypt password hashing and user-scoped job data using Prisma and PostgreSQL with
+    versioned migrations.
+ • Wrote unit and end-to-end tests running against an isolated test database; next step is AI-based job-to-CV match scoring.
+QueueInClick – Scheduling & Workflow Management System                               github.com/taliachoen/QueueInClick
+ • Built a full-stack scheduling system using React, Node.js, Express and MySQL.
+ • Designed REST APIs for services, working hours and appointment management, with structured data models and backend
+   business logic.
+Meet Talia – AI-Powered Portfolio                                                                 meet-talia-client.onrender.com
+ • Developed a full-stack portfolio site using React and ASP.NET Core (C#), deployed on Render.
+ • Built an interactive "Ask the AI about me" feature: visitors choose what they look for in a developer, and an ASP.NET Core
+   endpoint combines it with my CV into an OpenAI prompt that returns a short personalized summary.
+
+TECHNICAL SKILLS
+Backend: Node.js, Express.js, C# .NET, REST APIs, JWT
+Frontend: React, Next.js, JavaScript, TypeScript, HTML5, CSS, Tailwind CSS
+Databases & Cloud: Firebase (Auth, Firestore, Storage), MySQL, MongoDB
+AI Integrations: OpenAI API, Claude API, Suno API
+Deployment: Linux (Ubuntu), Render
+Testing & Tools: Unit Testing, Git, GitHub, Cursor, GitHub Copilot, Claude Code
+
+EDUCATION
+Practical Software Engineering Diploma – Machon Lev                                                                2022 – 2024
+Advanced Full Stack Development Bootcamp – Elevation                                                                       2024
+

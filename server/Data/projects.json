@@ -1,5 +1,17 @@
 [
   {
+    "name": "CareerAgent (בפיתוח)",
+    "description": "עוזר מבוסס AI לחיפוש עבודה, שנבנה כ-Monorepo ב-TypeScript: שרת NestJS עם Prisma ו-PostgreSQL, צד לקוח ב-Next.js, הזדהות JWT, ובדיקות Unit ו-End-to-End. השלב הבא: דירוג התאמה בין משרה לקורות חיים באמצעות AI.",
+    "tech": [
+      "NestJS",
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma"
+    ],
+    "link": "https://github.com/taliachoen/career-agent"
+  },
+  {
     "name": "Meet Talia  - גרסת C#",
     "description": "אתר תדמית אישי המציג אותי, טליה כהן. האתר כולל עמוד אודות, פרויקטים, צור קשר, אפשרות להורדת קורות חיים, וטופס אינטראקטיבי עם בינה מלאכותית. גרסה זו נבנתה ב-React ובשרת C# (ASP.NET Core), עם דגש על עיצוב מודרני, רספונסיביות וחוויית משתמש.",
     "tech": [
@@ -51,14 +63,5 @@
       "XML"
     ],
     "link": "https://github.com/taliachoen/TaskManagementForEngineers"
-  },
-  {
-    "name": "Photo Project",
-    "description": "אפליקציית ווב להצגת וניהול גלריית תמונות רספונסיבית עם עיצוב מודרני, אפקטי מעבר אינטראקטיביים ומבנה תיקיות נקי. הפרויקט כולל גלריה רספונסיבית, חוויית משתמש נעימה וקלה לשימוש.",
-    "tech": [
-      "HTML5",
-      "CSS3"
-    ],
-    "link": "https://github.com/taliachoen/photo_project"
   }
 ]
