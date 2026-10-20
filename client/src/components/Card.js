@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../css/Card.css';
 import { createPortal } from "react-dom";
 import personalData from '../data/personalData';
@@ -9,6 +9,19 @@ const Card = ({ project, variant }) => {
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
   const [showGallery, setShowGallery] = useState(false);
+
+  // Close any open modal with the Escape key
+  useEffect(() => {
+    if (!showGallery && !isFormVisible) return;
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setShowGallery(false);
+        setIsFormVisible(false);
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [showGallery, isFormVisible]);
   const aiOptions = [
     "אני מחפשת מפתחת שבתחילת דרכה אבל שרוצה ללמוד ולהתפתח בתחום ותתן את כולה בשביל זה",
     "אני מחפשת מפתחת שמביאה איתה חשיבה יצירתית ויכולת עבודה בצוות",

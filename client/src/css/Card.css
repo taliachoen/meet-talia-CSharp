@@ -496,7 +496,8 @@ textarea {
 
 /* כפתור סגירה */
 .close-btn {
-  position: absolute;
+  /* fixed (not absolute) so the button stays visible while scrolling inside the modal */
+  position: fixed;
   top: 24px;
   left: 24px;
   background: #fff;
