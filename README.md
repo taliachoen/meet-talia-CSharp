@@ -1,6 +1,6 @@
 # Meet Talia – AI-Powered Developer Portfolio
 
-An interactive portfolio site that presents my projects and CV, and includes an **AI job-fit analyzer**: a recruiter picks or pastes a job description, and the backend uses the OpenAI API to assess how well my experience matches the role.
+An interactive portfolio site that presents my projects and CV, and includes an **"Ask the AI about me"** feature: a recruiter picks what they are looking for in a developer, and the backend uses the OpenAI API, together with my CV, to write a short personalized summary of how I fit.
 
 **Live demo:** https://meet-talia-client.onrender.com/
 *(hosted on a free tier – the first load may take a few seconds)*
@@ -11,7 +11,7 @@ An interactive portfolio site that presents my projects and CV, and includes an 
 
 ## Features
 
-- **AI job-fit analysis** – an ASP.NET Core endpoint sends the job description and my profile to the OpenAI API and returns a written fit assessment
+- **"Ask the AI about me"** – visitors choose one of several "I'm looking for a developer who..." prompts; an ASP.NET Core endpoint combines it with my CV into a prompt for the OpenAI API and returns a short summary in Hebrew
 - **Project cards** with descriptions, tech stack, links and an image gallery modal (React Portals)
 - **CV section** with downloadable Hebrew and English versions
 - **Responsive design** for mobile, tablet and desktop
@@ -21,7 +21,7 @@ An interactive portfolio site that presents my projects and CV, and includes an 
 ```
 client/   React app (components, data files, gallery modal)
 server/   ASP.NET Core Web API
-  ├── Controllers/   REST endpoints (projects, AI analysis)
+  ├── Controllers/   REST endpoints (projects, AI summary)
   ├── Data/          Project data (JSON)
   └── Dockerfile     Container build for deployment
 ```
