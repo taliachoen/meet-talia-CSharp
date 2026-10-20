@@ -23,8 +23,7 @@ Software studio developing web products for clients and in-house ventures
  • Built user authentication and data management with Firebase (Auth, Firestore), and stored generated media in Firebase
      Storage.
  • Designed a simple, accessible UX for non-technical users using Next.js, React and Tailwind CSS.
- • Deployed and maintained the application on an Ubuntu cloud server and Render, including environment configuration and
-     production debugging.
+ • Released updates to the production environment on a cloud server (using PM2) and on Render.
 
 PROJECTS
 CareerAgent – AI Career Assistant (In Progress)                                            github.com/taliachoen/career-agent
@@ -46,7 +45,7 @@ Backend: Node.js, Express.js, C# .NET, REST APIs, JWT
 Frontend: React, Next.js, JavaScript, TypeScript, HTML5, CSS, Tailwind CSS
 Databases & Cloud: Firebase (Auth, Firestore, Storage), MySQL, MongoDB
 AI Integrations: OpenAI API, Claude API, Suno API
-Deployment: Linux (Ubuntu), Render
+Deployment: Render, PM2
 Testing & Tools: Unit Testing, Git, GitHub, Cursor, GitHub Copilot, Claude Code
 
 EDUCATION
