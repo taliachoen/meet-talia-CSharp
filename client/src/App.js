@@ -2,39 +2,27 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './components/Card';
 import './css/App.css';
-import personalData from './data/personalData';
-import contactData from './data/contactData';
 
 function App() {
-  const [data, setData] = useState([]);
+  const [projects, setProjects] = useState(null);
   const [error, setError] = useState('');
   const [activePage, setActivePage] = useState('about');
 
+  // Fetch projects as soon as the site opens. The server sleeps when idle (free hosting),
+  // so starting early "wakes it up" and the projects are usually ready by the time they are opened.
   useEffect(() => {
-    let url = '';
-    if (activePage === 'about') {
-      setData([personalData]);
-      return;
-    } else if (activePage === 'projects') {
-      url = `${process.env.REACT_APP_API_BASE_URL}/projects`;
-    } else if (activePage === 'contact') {
-      setData([contactData]);
-      return;
-    }
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/projects`)
+      .then(response => {
+        setProjects(response.data);
+        setError('');
+      })
+      .catch(err => {
+        console.error("error", err);
+        setError('אירעה שגיאה בעת שליפת הנתונים מהשרת');
+      });
+  }, []);
 
-    if (url) {
-      axios.get(url)
-        .then(response => {
-          setData(response.data);
-          setError('');
-        })
-        .catch(err => {
-          console.error("error", err);
-          setError('אירעה שגיאה בעת שליפת הנתונים מהשרת');
-          console.error(err);
-        });
-    }
-  }, [activePage]);
+  const data = activePage === 'projects' ? (projects || []) : [];
 
   const getHebrewTitle = (page) => {
     switch (page) {
@@ -115,9 +103,14 @@ function App() {
             </li>
           ))
         ) : (
-          <p>אנא המתינו רגע, הנתונים מתארגנים... <br />
-            הם רוצים להיראות במיטבם על המסך שלך! <br />
-            עוד שנייה – והם כאן! 🎉</p>
+          !error && (
+            <div style={{ textAlign: 'center' }}>
+              <div className="spinner" style={{ margin: '20px auto' }}></div>
+              <p>טוען את הפרויקטים... ⏳<br />
+                האתר מאוחסן בשרת חינמי שנכנס למצב שינה כשאין בו תנועה,<br />
+                ולכן הטעינה הראשונה עשויה לקחת עד חצי דקה. תודה על הסבלנות!</p>
+            </div>
+          )
         )}
       </ul>
       <footer className="main-footer">
@@ -125,7 +118,7 @@ function App() {
           margin: 0, color: 'black',
           fontFamily: 'Arial, sans-serif',
           fontSize: '14px',
-        }}>© 2025 טליה כהן</p>
+        }}>© {new Date().getFullYear()} טליה כהן</p>
       </footer>
     </div>
   );
