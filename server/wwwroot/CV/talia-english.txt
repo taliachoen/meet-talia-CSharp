@@ -26,11 +26,12 @@ Software studio developing web products for clients and in-house ventures
  • Released updates to the production environment on a cloud server (using PM2) and on Render.
 
 PROJECTS
-CareerAgent – AI Career Assistant (In Progress)                                            github.com/taliachoen/career-agent
- • Building an AI-powered job-search assistant as a TypeScript monorepo: NestJS REST API, Next.js frontend and shared types.
- • Implemented JWT authentication with bcrypt password hashing and user-scoped job data using Prisma and PostgreSQL with
-    versioned migrations.
- • Wrote unit and end-to-end tests running against an isolated test database; next step is AI-based job-to-CV match scoring.
+CareerAgent – AI Career Assistant (In Progress)                                              github.com/taliachoen/career-agent
+ • Building an AI job-search assistant as a TypeScript monorepo: NestJS REST API, Next.js frontend and shared types.
+ • Implemented JWT auth and user-scoped jobs and CV profile data with Prisma, PostgreSQL and versioned migrations.
+ • Wrote unit tests and 19 Playwright E2E tests on an isolated test DB; next step is AI job-to-CV match scoring.
+ • AI-assisted workflow with Claude Code: CLAUDE.md, hooks guarding secrets and running type checks, and a code-review
+    agent.
 QueueInClick – Scheduling & Workflow Management System                               github.com/taliachoen/QueueInClick
  • Built a full-stack scheduling system using React, Node.js, Express and MySQL.
  • Designed REST APIs for services, working hours and appointment management, with structured data models and backend

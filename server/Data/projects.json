@@ -1,13 +1,14 @@
 [
   {
     "name": "CareerAgent (בפיתוח)",
-    "description": "עוזר מבוסס AI לחיפוש עבודה, שנבנה כ-Monorepo ב-TypeScript: שרת NestJS עם Prisma ו-PostgreSQL, צד לקוח ב-Next.js, הזדהות JWT, ובדיקות Unit ו-End-to-End. השלב הבא: דירוג התאמה בין משרה לקורות חיים באמצעות AI.",
+    "description": "עוזר מבוסס AI לחיפוש עבודה, שנבנה כ-Monorepo ב-TypeScript: שרת NestJS עם Prisma ו-PostgreSQL, צד לקוח ב-Next.js בעברית, הזדהות JWT, עמוד פרופיל לקורות החיים, ובדיקות Unit ו-End-to-End ב-Playwright. הפיתוח נעשה בעזרת Claude Code, עם Hooks לבדיקות אוטומטיות וסוכן Code Review. השלב הבא: דירוג התאמה בין משרה לקורות חיים באמצעות AI.",
     "tech": [
       "NestJS",
       "Next.js",
       "TypeScript",
       "PostgreSQL",
-      "Prisma"
+      "Prisma",
+      "Playwright"
     ],
     "link": "https://github.com/taliachoen/career-agent"
   },
